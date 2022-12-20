@@ -8,9 +8,9 @@ mp_cizim = mp.solutions.drawing_utils
 mp_eller = mp.solutions.hands
 
 with mp_eller.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5, max_num_hands=2) as eller:
-    cap = cv2.VideoCapture(0)
-    while cap.isOpened():
-        ret, frame = cap.read()
+    yakalama = cv2.VideoCapture(0)
+    while yakalama.isOpened():
+        ret, frame = yakalama.read()
 
         #BGR to RGB
         resim = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -74,7 +74,7 @@ with mp_eller.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5, m
         if cv2.waitKey(10) & 0xFF == ord("q"): #Programı kapatmak için klavyeden "q" tuşuna basmanız yeterli.
             break
 
-cap.release()
+yakalama.release()
 cv2.destroyAllWindows()
 
 mp_eller.HAND_CONNECTIONS
